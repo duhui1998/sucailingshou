@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>蔬菜零售</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="font_y17na0btkis/iconfont.css">
+	<meta id="viewport" name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+	<style type="text/css">
+    html,body{margin:0;padding:0;}
+    .iw_poi_title {
+     color:#CC5522;
+     font-size:0.35rem;
+     font-weight:bold;
+     overflow:hidden;
+     padding-right:0.325rem;
+     white-space:nowrap;
+}
+ .iw_poi_content {
+     font:0.3rem arial,sans-serif;
+     overflow:visible;
+     padding-top:0.1rem;
+     white-space:-moz-pre-wrap;
+     word-wrap:break-word;
+}
+</style>
+<!-- 手机端 -->
+<script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
+</head>
+<body>
+	<script>
+       	 window.onload = window.onresize = function(){
+           	 var view_width = document.getElementsByTagName('html')[0].getBoundingClientRect().width;
+
+           	 var _html = document.getElementsByTagName('html')[0];
+            	view_width>640?_html.style.fontSize = 640 / 16 + 'px':_html.style.fontSize = view_width / 16 + 'px';
+       	 }
+</script>
+<!-- 头部 -->
+<div class="top1">
+    <div class="top">
+    	<span class="iconfont icon-cuowu"></span>
+    	<span class="span">|</span>
+    	<p>蔬菜零售</p>
+    	<div class="t-r">
+    		<span class="iconfont icon-caidan"></span>
+    	</div>
+    </div>
+	<div class="search">
+	   <p>附近100米</p>
+	   <span class="iconfont icon-xialatubiao"></span>
+	   <input type="text" value="请输入">
+	</div>
+</div>
+<div class="null"></div>
+<!-- 引入地图 -->
+<div style="width:15.9rem;height:13.75rem;border:#ccc solid 1px;position: reltive;z-index:2;" id="dituContent"></div>
+
+<script type="text/javascript">
+    //创建和初始化地图函数：
+    function initMap(){
+        createMap();//创建地图
+        setMapEvent();//设置地图事件
+        addMapControl();//向地图添加控件
+    }
+    
+    //创建地图函数：
+    function createMap(){
+        var map = new BMap.Map("dituContent");//在百度地图容器中创建一个地图
+        var point = new BMap.Point(118.032772,39.678431);//定义一个中心点坐标
+        map.centerAndZoom(point,8);//设定地图的中心点和坐标并将地图显示在地图容器中
+        window.map = map;//将map变量存储在全局
+    }
+    
+    //地图事件设置函数：
+    function setMapEvent(){
+        map.enableDragging();//启用地图拖拽事件，默认启用(可不写)
+        map.enableScrollWheelZoom();//启用地图滚轮放大缩小
+        map.enableDoubleClickZoom();//启用鼠标双击放大，默认启用(可不写)
+        map.enableKeyboard();//启用键盘上下左右键移动地图
+    }
+    
+    //地图控件添加函数：
+    function addMapControl(){
+        //向地图中添加缩放控件
+    var ctrl_nav = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
+    map.addControl(ctrl_nav);
+        //向地图中添加缩略图控件
+    var ctrl_ove = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,isOpen:1});
+    map.addControl(ctrl_ove);
+        //向地图中添加比例尺控件
+    var ctrl_sca = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
+    map.addControl(ctrl_sca);
+    }
+    
+    
+    initMap();//创建和初始化地图
+</script>
+<!-- 内容 -->
+<div class="content">
+	<ul class="c-l">
+		<li><span>1</span>生鲜卖场</li>
+		<li><span>2</span>生鲜卖场</li>
+		<li><span>3</span>生鲜卖场</li>
+		<li><span>4</span>生鲜卖场</li>
+		<li><span>5</span>生鲜卖场</li>
+		<li><span>6</span>生鲜卖场</li>
+	</ul>
+	<ul class="c-r">
+		<li>100米<img src="images/jiantou.jpg">
+            <span class="iconfont icon-arrow-down"></span>
+		</li>
+		<li>100米<img src="images/jiantou.jpg">
+            <span class="iconfont icon-arrow-down"></span>
+		</li>
+		<li>100米<img src="images/jiantou.jpg">
+            <span class="iconfont icon-arrow-down"></span>
+		</li>
+		<li>100米<img src="images/jiantou.jpg">
+            <span class="iconfont icon-arrow-down"></span>
+		</li>
+		<li>100米<img src="images/jiantou.jpg">
+            <span class="iconfont icon-arrow-down"></span>
+		</li>
+		<li>100米<img src="images/jiantou.jpg">
+            <span class="iconfont icon-arrow-down"></span>
+		</li>
+	</ul>
+</div>
+<!-- 底部 -->
+<div class="footer">
+    <ul>
+        <li><a class="a" href=""><span class="iconfont icon-zyojiantou"></a></span></li>
+        <li><a href="">1</a></li>
+        <li><a href="">2</a></li>
+        <li><a href="">3</a></li>
+        <li><a href="">4</a></li>
+        <li><a href="">5</a></li>
+        <li><a class="a2" href=""><span class="iconfont icon-icon1"></a></li>
+    </ul>
+</div>
+</body>
+</html>
